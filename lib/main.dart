@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'widgets/buttonKonversi.dart';
+import 'widgets/inputSuhu.dart';
+import 'widgets/resultSuhu.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -47,62 +51,26 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextFormField(
-                decoration: InputDecoration(hintText: "Masukan Nilai Suhu"),
-                //inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                controller: etInput,
-                keyboardType: TextInputType.number,
-              ),
+              InputSuhu(etInput: etInput),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Column(
-                    children: [
-                      Text(
-                        "Kelvin",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      Text(
-                        '$kelvin',
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        "Fahrenheit",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      Text(
-                        '$fahrenheit',
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        "Reamur",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      Text(
-                        '$reamur',
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ],
-                  ),
+                  ResultSuhu(
+                    result: kelvin, 
+                    title: "kelvin",
+                    ),
+                  ResultSuhu(
+                    result: reamur, 
+                    title: "Reamur",
+                    ),
+                  ResultSuhu(
+                    result: fahrenheit, 
+                    title: "fahrenheit",
+                    ),
                 ],
               ),
-              Container(
-                width: double.infinity,
-                height: 50,
-                child: RaisedButton(
-                  onPressed: konversi,
-                  color: Colors.lightBlue,
-                  textColor: Colors.white,
-                  child: Text("Konversi"),
-                ),
+              ButtonKoversi(
+                konversi: konversi,
               )
             ],
           ),
