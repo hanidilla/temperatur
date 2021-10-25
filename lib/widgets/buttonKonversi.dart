@@ -7,13 +7,14 @@ class ButtonKoversi extends StatelessWidget {
   }) : super(key: key);
 
   final Function konversi;
+  
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       height: 50,
       child: RaisedButton(
-        onPressed: () {},
+        onPressed: konversi, 
         color: Colors.lightBlue,
         textColor: Colors.white,
         child: Text("Konversi"),
